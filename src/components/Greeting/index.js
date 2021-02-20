@@ -2,54 +2,36 @@ import React from 'react';
  
 
 
-// switch(expression) {
-//     case x:
-//       // code block
-//       break;
-//     case y:
-//       // code block
-//       break;
-//     default:
-//       // code block
-//   }
 
-function Greetings (props){
-if(props.lang==="de"){
-    return (
-       <p style={{width: 600, height: 40, border: '2px solid black', padding: 5, display: 'flex', fontSize: 30}}> Hallo {props.children}</p>
-        );
-}else if (props.lang==="fr"){
-    return (
-        <p style={{width: 600, height: 40, border: '2px solid black', padding: 5, display: 'flex', fontSize: 30}}> Bonjour {props.children}</p>
-        );
-}else if (props.lang==="en"){
-    return (
-       <p style={{width: 600, height: 40, border: '2px solid black', padding: 5, display: 'flex', fontSize: 30}}> Hello {props.children}</p> 
-        );
-}else if (props.lang==="es"){
-    return (
-       <p style={{width: 600, height: 40, border: '2px solid black', padding: 5, display: 'flex', fontSize: 30}}> Olla {props.children}</p>
-        );
-    } else {
-        return (
-            'No such greeting!'
-        )
+
+function Greetings ({lang, children}){
+
+    const greetingLang = () => {
+    switch(lang){
+        case 'de':
+            return 'Hallo';
+        case 'en':
+            return 'Hello';
+        case 'es':
+            return 'Hola';
+        case 'fr':
+            return 'Bonjour';
     }
+}
 
-// switch(props.lang){
-//     case "de":
-//       props.children
-//       break;
-//     case "fr":
-//         props.children
-//         break;
-//     case "en":
-//         props.children
-//         break;
-//     case "es":
-//         props.children
-//         break;
-// }
+
+    return(
+        <div>
+            <p>{greetingLang()} {children}</p>
+        </div>
+        // <div>{props.lang==="de" && <p style={{width: 600, height: 40, border: '2px solid black', padding: 5, display: 'flex', fontSize: 30}}> Hallo {props.children}</p> ||
+        // props.lang==="fr" && <p style={{width: 600, height: 40, border: '2px solid black', padding: 5, display: 'flex', fontSize: 30}}> Bonjour {props.children}</p> ||
+        // props.lang==="en" && <p style={{width: 600, height: 40, border: '2px solid black', padding: 5, display: 'flex', fontSize: 30}}> Hello {props.children}</p> ||
+        // props.lang==="es" && <p style={{width: 600, height: 40, border: '2px solid black', padding: 5, display: 'flex', fontSize: 30}}> Olla {props.children}</p>
+        // }   
+        // </div>
+            )
+
 
 }
  
